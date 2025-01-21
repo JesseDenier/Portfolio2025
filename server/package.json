@@ -1,0 +1,26 @@
+{
+  "name": "portfolio2025-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "build": "echo 'No build step for server'",
+    "seed": "node utils/seed.js"
+  },
+  "keywords": [],
+  "author": "Jesse Denier",
+  "license": "Proprietary",
+  "dependencies": {
+    "@apollo/server": "^4.10.4",
+    "dotenv": "^16.4.5",
+    "portfolio2025-root": "file:..",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "nodemon": "^3.1.3"
+  }
+}
