@@ -118,15 +118,25 @@ const HomePage = () => {
         </div>
       </section>
 
-      <footer className="p-4 bg-darkgreen text-white flex flex-col md:flex-row justify-between items-center mt-8 gap-4">
-        <p>&copy; 2025 Jesse Denier. All Rights Reserved.</p>
-        <a
-          href="mailto:jessecdenier@gmail.com?subject=I%20want%20to%20hire%20you!"
-          className="text-white text-center"
-        >
-          jessecdenier@gmail.com
-        </a>
-        <div className="flex items-center gap-4">
+      {/* Footer */}
+      <footer className="py-6 px-4 bg-darkgreen text-white flex flex-col lg:flex-row items-center gap-4 relative">
+        {/* Copyright Section */}
+        <p className="text-center lg:text-left lg:absolute lg:left-4">
+          &copy; 2025 Jesse Denier. All Rights Reserved.
+        </p>
+
+        {/* Centered Email */}
+        <div className="text-center mx-auto lg:absolute lg:inset-x-0">
+          <a
+            href="mailto:jessecdenier@gmail.com?subject=I%20want%20to%20hire%20you!"
+            className="text-white hover:text-yellow transform hover:scale-105 transition-transform duration-300 inline-block"
+          >
+            jessecdenier@gmail.com
+          </a>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex items-center gap-4 lg:absolute lg:right-4">
           <a
             href="https://github.com/JesseDenier"
             target="_blank"
