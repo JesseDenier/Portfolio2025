@@ -1,7 +1,32 @@
 // Imports React library
-import React from "react";
+import React, { useState } from "react";
 
 const HomePage = () => {
+  const [hoverStyles, setHoverStyles] = useState({});
+
+  const handleMouseMove = (e, id) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setHoverStyles((prevStyles) => ({
+      ...prevStyles,
+      [id]: {
+        transform: `scale(1.05) translate(${x}%, ${y}%)`,
+        zIndex: 10,
+        position: "relative", // Ensure stacking context
+        border: "2px solid #003622", // darkgreen border
+        borderRadius: "0.75rem", // rounded-lg in Tailwind
+      },
+    }));
+  };
+
+  const resetHoverStyle = (id) => {
+    setHoverStyles((prevStyles) => ({
+      ...prevStyles,
+      [id]: { transform: "none" },
+    }));
+  };
+
   return (
     <main className="text-darkgreen font-sans">
       {/* About Me Section */}
@@ -41,17 +66,21 @@ const HomePage = () => {
           Full Stack Web Development
         </h3>
         <div className="grid grid-cols-2 gap-4 mb-8">
-          <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen">
+          {/* Format Group */}
+          <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
             <a
-              className="items-center justify-center"
+              className="items-center justify-center relative overflow-visible"
               href="https://www.formatllc.com/"
               target="_blank"
               rel="noopener noreferrer"
+              onMouseMove={(e) => handleMouseMove(e, "format")}
+              onMouseLeave={() => resetHoverStyle("format")}
             >
               <img
                 src="format.png"
                 alt="The Format Group Website"
-                className="w-full"
+                className="w-full transition-transform duration-500 ease-out"
+                style={hoverStyles.format || { transform: "none" }}
               />
             </a>
             <div className="p-4 flex flex-col">
@@ -63,17 +92,22 @@ const HomePage = () => {
               </span>
             </div>
           </div>
-          <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen">
+
+          {/* ISCA Publications */}
+          <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
             <a
-              className="items-center justify-center"
+              className="items-center justify-center relative overflow-visible"
               href="https://www.iscapublications.com/"
               target="_blank"
               rel="noopener noreferrer"
+              onMouseMove={(e) => handleMouseMove(e, "isca")}
+              onMouseLeave={() => resetHoverStyle("isca")}
             >
               <img
                 src="isca.png"
-                alt="ISCA Library Website"
-                className="w-full"
+                alt="ISCA Publications Website"
+                className="w-full transition-transform duration-500 ease-out"
+                style={hoverStyles.isca || { transform: "none" }}
               />
             </a>
             <div className="p-4 flex flex-col">
@@ -81,7 +115,7 @@ const HomePage = () => {
                 ISCA Publications
               </strong>
               <span className="text-sm text-white">
-                International School Counselors Association Library
+                International School Counselor Association Library
               </span>
             </div>
           </div>
