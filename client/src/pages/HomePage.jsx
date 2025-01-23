@@ -79,7 +79,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("format")}
             >
               <img
-                src="format.png"
+                src="full_stack/format.png"
                 alt="The Format Group Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.format || { transform: "none" }}
@@ -106,7 +106,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("isca")}
             >
               <img
-                src="isca.png"
+                src="full_stack/isca.png"
                 alt="ISCA Publications Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.isca || { transform: "none" }}
@@ -139,7 +139,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("quiz")}
             >
               <img
-                src="quiz.png"
+                src="code_samples/quiz.png"
                 alt="Javascript Quiz Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.quiz || { transform: "none" }}
@@ -166,7 +166,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("password")}
             >
               <img
-                src="password.png"
+                src="code_samples/password.png"
                 alt="Password Generator Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.password || { transform: "none" }}
@@ -193,7 +193,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("weather")}
             >
               <img
-                src="weather.png"
+                src="code_samples/weather.png"
                 alt="Weather Dashboard Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.weather || { transform: "none" }}
@@ -220,7 +220,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("bingo")}
             >
               <img
-                src="bingo.png"
+                src="code_samples/bingo.png"
                 alt="Bingo Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.bingo || { transform: "none" }}
@@ -247,7 +247,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("scheduler")}
             >
               <img
-                src="scheduler.png"
+                src="code_samples/scheduler.png"
                 alt="Work Scheduler Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.scheduler || { transform: "none" }}
@@ -272,7 +272,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("recipe")}
             >
               <img
-                src="recipe.png"
+                src="code_samples/recipe.png"
                 alt="Recipe Creator Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.recipe || { transform: "none" }}
@@ -287,6 +287,7 @@ const HomePage = () => {
               </span>
             </div>
           </div>
+
           {/* Parlay Calculator */}
           <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
             <a
@@ -298,7 +299,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("parlay")}
             >
               <img
-                src="parlay.png"
+                src="code_samples/parlay.png"
                 alt="Parlay Calculator Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.parlay || { transform: "none" }}
@@ -313,6 +314,7 @@ const HomePage = () => {
               </span>
             </div>
           </div>
+
           {/* Expense Tracker */}
           <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
             <a
@@ -324,7 +326,7 @@ const HomePage = () => {
               onMouseLeave={() => resetHoverStyle("expense")}
             >
               <img
-                src="expense.png"
+                src="code_samples/expense.png"
                 alt="Expense Tracker Website"
                 className="w-full transition-transform duration-500 ease-out"
                 style={hoverStyles.expense || { transform: "none" }}
@@ -348,16 +350,49 @@ const HomePage = () => {
         {/* Logos */}
         <h3 className="text-2xl font-semibold text-center mb-4">Logos</h3>
         <div className="grid grid-cols-4 gap-4 mb-8">
-          {Array(4)
-            .fill(null)
-            .map((_, index) => (
-              <div
-                key={index}
-                className="h-40 bg-gray-200 rounded shadow flex items-center justify-center"
-              >
-                Empty Link Box
-              </div>
-            ))}
+          {/* CSMBB */}
+          <div className="h-auto flex flex-col relative overflow-visible group">
+            <img
+              src="logos/csmbb.png"
+              alt="CSMBB Logo, a 2x2 blue grid with each partner's name on it's right"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+            <strong className="p-2 text-lg font-bold">
+              Law Offices of Cornell Smith & Mierl
+            </strong>
+          </div>
+
+          {/* Tori's Tots */}
+          <div className="h-auto flex flex-col relative overflow-visible group">
+            <img
+              src="logos/tori.png"
+              alt="Tori's Tots Logo, a green tree growing from a heart into a lightbulb"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+            <strong className="p-2 text-lg font-bold">
+              Tori's Tots Nursery
+            </strong>
+          </div>
+
+          {/* Hemlock Aerials */}
+          <div className="h-auto flex flex-col relative overflow-visible group">
+            <img
+              src="logos/hemlock.png"
+              alt="Hemlock Aerials Logo, a geometric tree growing from simplistic lines"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+            <strong className="p-2 text-lg font-bold">Hemlock Aerials</strong>
+          </div>
+
+          {/* Corden's Court */}
+          <div className="h-auto flex flex-col relative overflow-visible group">
+            <img
+              src="logos/corden.png"
+              alt="Corden's Court logo, a round table surrounded by knights holding beer steins"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+            <strong className="p-2 text-lg font-bold">Corden's Court</strong>
+          </div>
         </div>
 
         {/* Flyers */}
