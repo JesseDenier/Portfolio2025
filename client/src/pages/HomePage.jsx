@@ -41,11 +41,49 @@ const HomePage = () => {
           Full Stack Web Development
         </h3>
         <div className="grid grid-cols-2 gap-4 mb-8">
-          <div className="h-40 bg-gray-200 rounded shadow flex items-center justify-center">
-            Empty Link Box
+          <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen">
+            <a
+              className="items-center justify-center"
+              href="https://www.formatllc.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="format.png"
+                alt="The Format Group Website"
+                className="w-full"
+              />
+            </a>
+            <div className="p-4 flex flex-col">
+              <strong className="text-lg text-white font-bold">
+                The Format Group
+              </strong>
+              <span className="text-sm text-white">
+                Austin-Based Instructional Design Firm
+              </span>
+            </div>
           </div>
-          <div className="h-40 bg-gray-200 rounded shadow flex items-center justify-center">
-            Empty Link Box
+          <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen">
+            <a
+              className="items-center justify-center"
+              href="https://www.iscapublications.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="isca.png"
+                alt="ISCA Library Website"
+                className="w-full"
+              />
+            </a>
+            <div className="p-4 flex flex-col">
+              <strong className="text-lg text-white font-bold">
+                ISCA Publications
+              </strong>
+              <span className="text-sm text-white">
+                International School Counselors Association Library
+              </span>
+            </div>
           </div>
         </div>
 
