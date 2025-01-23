@@ -9,7 +9,7 @@ const Header = () => {
           {/* Inline SVG for Favicon with Hover Effect */}
           <a
             href="#Home"
-            className="flex items-center gap-2 hover:text-yellow transition-colors duration-300"
+            className="flex items-center gap-2 hover:text-yellow transform hover:scale-105 transition-transform transition-colors duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -26,19 +26,19 @@ const Header = () => {
         <nav className="flex-1 flex justify-center gap-6 text-lg items-center">
           <a
             href="#Projects"
-            className="hover:text-yellow transition-colors duration-300"
+            className="hover:text-yellow transform hover:scale-105 transition-transform duration-300"
           >
             Projects
           </a>
           <a
             href="#Marketing"
-            className="hover:text-yellow transition-colors duration-300"
+            className="hover:text-yellow transform hover:scale-105 transition-transform duration-300"
           >
             Marketing
           </a>
           <a
             href="#About"
-            className="hover:text-yellow transition-colors duration-300"
+            className="hover:text-yellow transform hover:scale-105 transition-transform duration-300"
           >
             About
           </a>
