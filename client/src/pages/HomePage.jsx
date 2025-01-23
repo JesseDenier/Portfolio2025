@@ -398,16 +398,69 @@ const HomePage = () => {
         {/* Flyers */}
         <h3 className="text-2xl font-semibold text-center mb-4">Flyers</h3>
         <div className="grid grid-cols-4 gap-4 mb-8">
-          {Array(8)
-            .fill(null)
-            .map((_, index) => (
-              <div
-                key={index}
-                className="h-40 bg-gray-200 rounded shadow flex items-center justify-center"
-              >
-                Empty Link Box
-              </div>
-            ))}
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="flyers/sxsm2016.png"
+              alt="South By San Marcos Flyer, green pull-tab flyer showing a man on stage reaching out to hold the hand of an audience member"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="flyers/sxsm2015.png"
+              alt="South By San Marcos flyer, red and blue dots with an airplane flying over them and a tank below"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="flyers/eclipse.png"
+              alt="Eclipse flyer, purple and blue campsite with a fire under a combined moon and sun"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="flyers/valentines2023.png"
+              alt="Valentines flyer, retro theme showing a stylized sunset and many hearts"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="flyers/bmw.png"
+              alt="Mock-up of a BMW magainze advertisement displaying a bmw parked on top of a conference table"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="flyers/jesse_bday1.png"
+              alt="Jesse's Birthday flyer, a wavy retro design highlighting a man's watch"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="flyers/jesse_bday2.png"
+              alt="Jesse's Birthday schedule, green, orange, and brown flags displaying activities for each hour"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="flyers/ramzi_bday.png"
+              alt="Ramzi's birthday flyer, a spoof on the Hercules movie poster with the faces replaced"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="flyers/natalie_bday.png"
+              alt="Natalie's birthday flyer, a blue background with a large gecko and flowers in the center"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
         </div>
 
         {/* Art */}
