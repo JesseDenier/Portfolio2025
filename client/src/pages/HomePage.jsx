@@ -466,16 +466,34 @@ const HomePage = () => {
         {/* Art */}
         <h3 className="text-2xl font-semibold text-center mb-4">Art</h3>
         <div className="grid grid-cols-4 gap-4">
-          {Array(4)
-            .fill(null)
-            .map((_, index) => (
-              <div
-                key={index}
-                className="h-40 bg-gray-200 rounded shadow flex items-center justify-center"
-              >
-                Empty Link Box
-              </div>
-            ))}
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="art/austin.png"
+              alt="Collection of historic Austin signs in a collage over an Austin road map"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="art/greek.png"
+              alt="Greek inspired pegasus, ouroboros, and woman in a sun"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="art/panda.png"
+              alt="A cute red panda holding a bag of popeyes and a biscuit"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="art/time_lord.png"
+              alt="Celtics player Rob Williams III blocking Steph Curry's shot in outerspace"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
         </div>
       </section>
 
