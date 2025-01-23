@@ -400,64 +400,57 @@ const HomePage = () => {
         <div className="grid grid-cols-4 gap-4 mb-8">
           <div className="h-auto relative overflow-visible group">
             <img
-              src="flyers/sxsm2016.png"
+              src="flyers/2016sxsm.png"
               alt="South By San Marcos Flyer, green pull-tab flyer showing a man on stage reaching out to hold the hand of an audience member"
               className="w-full transition-transform duration-500 ease-out"
             />
           </div>
           <div className="h-auto relative overflow-visible group">
             <img
-              src="flyers/sxsm2015.png"
+              src="flyers/2017sxsm.svg"
               alt="South By San Marcos flyer, red and blue dots with an airplane flying over them and a tank below"
               className="w-full transition-transform duration-500 ease-out"
             />
           </div>
           <div className="h-auto relative overflow-visible group">
             <img
-              src="flyers/eclipse.png"
+              src="flyers/2024eclipse.svg"
               alt="Eclipse flyer, purple and blue campsite with a fire under a combined moon and sun"
               className="w-full transition-transform duration-500 ease-out"
             />
           </div>
           <div className="h-auto relative overflow-visible group">
             <img
-              src="flyers/valentines2023.png"
+              src="flyers/2023valentines.png"
               alt="Valentines flyer, retro theme showing a stylized sunset and many hearts"
               className="w-full transition-transform duration-500 ease-out"
             />
           </div>
           <div className="h-auto relative overflow-visible group">
             <img
-              src="flyers/bmw.png"
-              alt="Mock-up of a BMW magainze advertisement displaying a bmw parked on top of a conference table"
+              src="flyers/2024peterpan.png"
+              alt="Save Peter Pan Putt Putt flyer, quirky design with a large dinosaur and lots of color"
               className="w-full transition-transform duration-500 ease-out"
             />
           </div>
           <div className="h-auto relative overflow-visible group">
             <img
-              src="flyers/jesse_bday1.png"
+              src="flyers/2023jesse1.svg"
               alt="Jesse's Birthday flyer, a wavy retro design highlighting a man's watch"
               className="w-full transition-transform duration-500 ease-out"
             />
           </div>
           <div className="h-auto relative overflow-visible group">
             <img
-              src="flyers/jesse_bday2.png"
+              src="flyers/2023jesse2.svg"
               alt="Jesse's Birthday schedule, green, orange, and brown flags displaying activities for each hour"
               className="w-full transition-transform duration-500 ease-out"
             />
           </div>
           <div className="h-auto relative overflow-visible group">
             <img
-              src="flyers/ramzi_bday.png"
+              src="flyers/2022ramzi.png"
               alt="Ramzi's birthday flyer, a spoof on the Hercules movie poster with the faces replaced"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="flyers/natalie_bday.png"
-              alt="Natalie's birthday flyer, a blue background with a large gecko and flowers in the center"
               className="w-full transition-transform duration-500 ease-out"
             />
           </div>
