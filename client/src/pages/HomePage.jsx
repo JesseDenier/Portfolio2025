@@ -11,9 +11,10 @@ const HomePage = () => {
     setHoverStyles((prevStyles) => ({
       ...prevStyles,
       [id]: {
-        transform: `scale(1.05) translate(${x}%, ${y}%)`,
-        zIndex: 10,
-        position: "relative", // Ensure stacking context
+        transform: `scale(1.05) translate(${x * 2}%, ${y * 2}%)`,
+        //! Adjust the z-index and position properties to allow the image to overlap other elements
+        // zIndex: 10,
+        // position: "relative",
         border: "2px solid #003622", // darkgreen border
         borderRadius: "0.75rem", // rounded-lg in Tailwind
       },
