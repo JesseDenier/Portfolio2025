@@ -459,34 +459,52 @@ const HomePage = () => {
             <div className="relative flex items-center justify-center w-full h-[30rem]">
               {flyers.map((flyer, index) => {
                 const isCurrent = index === currentIndex;
-                const isPrev =
+                const leftOne =
                   index === (currentIndex - 1 + flyers.length) % flyers.length;
-                const isNext = index === (currentIndex + 1) % flyers.length;
+                const leftTwo =
+                  index === (currentIndex - 2 + flyers.length) % flyers.length;
+                const rightOne = index === (currentIndex + 1) % flyers.length;
+                const rightTwo = index === (currentIndex + 2) % flyers.length;
+
+                // Render only 5 flyers (center + 2 on each side)
+                if (
+                  !(isCurrent || leftOne || leftTwo || rightOne || rightTwo)
+                ) {
+                  return null;
+                }
+
+                const getScale = () => {
+                  if (isCurrent) return "scale(1)";
+                  if (leftOne || rightOne) return "scale(0.8)";
+                  if (leftTwo || rightTwo) return "scale(0.6)";
+                  return "scale(0.4)";
+                };
+
+                const getZIndex = () => {
+                  if (isCurrent) return 20;
+                  if (leftOne || rightOne) return 10;
+                  if (leftTwo || rightTwo) return 5;
+                  return 0;
+                };
+
+                const getOpacity = () => (leftTwo || rightTwo ? 0.5 : 1);
 
                 return (
                   <div
                     key={index}
-                    className={`absolute transition-transform duration-500 ease-in-out flex flex-col items-center text-center ${
-                      isCurrent
-                        ? "z-20 opacity-100 scale-100"
-                        : isPrev || isNext
-                        ? "z-10 opacity-70 scale-75"
-                        : "z-0 opacity-0 scale-50"
-                    }`}
+                    className={`absolute transition-transform duration-500 ease-in-out flex flex-col items-center text-center`}
                     style={{
-                      transform: isCurrent
-                        ? "translateX(0)"
-                        : isPrev
-                        ? "translateX(-150%) rotateY(-30deg)"
-                        : isNext
-                        ? "translateX(150%) rotateY(30deg)"
-                        : "translateX(0)",
+                      transform: `${getScale()} translateX(${
+                        (index - currentIndex) * 100
+                      }%)`,
+                      zIndex: getZIndex(),
+                      opacity: getOpacity(),
                     }}
                   >
                     <img
                       src={flyer.src}
                       alt={flyer.alt}
-                      className="rounded-lg shadow-lg w-[18rem] h-auto object-cover"
+                      className="rounded-lg shadow-lg w-[15rem] h-auto object-cover"
                     />
                     {isCurrent && (
                       <div className="mt-4">
