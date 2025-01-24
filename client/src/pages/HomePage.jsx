@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 const HomePage = () => {
+  // Logic for the hover effect on all projects.
   const [hoverStyles, setHoverStyles] = useState({});
 
   const handleMouseMove = (e, id) => {
@@ -27,6 +28,61 @@ const HomePage = () => {
       ...prevStyles,
       [id]: { transform: "none" },
     }));
+  };
+
+  // Array of flyer objects
+  const flyers = [
+    {
+      title: "South By San Marcos 2016",
+      alt: "Green pull-tab flyer showing a musician on stage",
+      src: "flyers/2016sxsm.png",
+    },
+    {
+      title: "South By San Marcos 2017",
+      alt: "Red, white, and blue flyer with stars and stripes",
+      src: "flyers/2017sxsm.svg",
+    },
+    {
+      title: "Eclipse Viewing",
+      alt: "Purple flyer with a campsite, fire, and combined moon and sun",
+      src: "flyers/2024eclipse.svg",
+    },
+    {
+      title: "Valentine's Bar Crawl",
+      alt: "Retro flyer with a stylized sunset and hearts",
+      src: "flyers/2023valentines.png",
+    },
+    {
+      title: "Save Peter Pan Putt Putt",
+      alt: "Quirky flyer with a large dinosaur",
+      src: "flyers/2024peterpan.png",
+    },
+    {
+      title: "Friend's Birthday",
+      alt: "Hercules movie poster with faces replaced",
+      src: "flyers/2022ramzi.png",
+    },
+    {
+      title: "My Birthday",
+      alt: "Wavy retro flyer highlighting a watch",
+      src: "flyers/2023jesse1.svg",
+    },
+    {
+      title: "Birthday Schedule",
+      alt: "Green, orange, and brown flags showing activities for each hour.",
+      src: "flyers/2023jesse2.svg",
+    },
+  ];
+
+  // Logic for flyer carousel
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + flyers.length) % flyers.length);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % flyers.length);
   };
 
   return (
@@ -395,66 +451,96 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Flyers */}
-        <h3 className="text-2xl font-semibold text-center mb-4">Flyers</h3>
-        <div className="grid grid-cols-4 gap-4 mb-8">
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="flyers/2016sxsm.png"
-              alt="South By San Marcos Flyer, green pull-tab flyer showing a man on stage reaching out to hold the hand of an audience member"
-              className="w-full transition-transform duration-500 ease-out"
-            />
+        {/* Flyers Section */}
+        <section id="Flyers" className="p-6">
+          <h3 className="text-3xl font-semibold text-center mb-6">Flyers</h3>
+          <div className="relative w-full flex items-center justify-center overflow-hidden">
+            {/* Carousel Container */}
+            <div className="relative flex items-center justify-center w-full h-[30rem]">
+              {flyers.map((flyer, index) => {
+                const isCurrent = index === currentIndex;
+
+                // Wrap-around calculations for neighboring flyers
+                const leftOne =
+                  index === (currentIndex - 1 + flyers.length) % flyers.length;
+                const leftTwo =
+                  index === (currentIndex - 2 + flyers.length) % flyers.length;
+                const rightOne = index === (currentIndex + 1) % flyers.length;
+                const rightTwo = index === (currentIndex + 2) % flyers.length;
+
+                // Render only the relevant 5 flyers
+                if (
+                  !(isCurrent || leftOne || leftTwo || rightOne || rightTwo)
+                ) {
+                  return null;
+                }
+
+                // Adjust transform to handle wrap-around
+                const relativeIndex =
+                  (index - currentIndex + flyers.length) % flyers.length; // Relative position
+                const adjustedTranslateX =
+                  relativeIndex > flyers.length / 2
+                    ? relativeIndex - flyers.length
+                    : relativeIndex; // Wrap around when going beyond halfway
+
+                const getScale = () => {
+                  if (isCurrent) return "scale(1)";
+                  if (leftOne || rightOne) return "scale(0.8)";
+                  if (leftTwo || rightTwo) return "scale(0.6)";
+                  return "scale(0.4)";
+                };
+
+                const getZIndex = () => {
+                  if (isCurrent) return 20;
+                  if (leftOne || rightOne) return 10;
+                  if (leftTwo || rightTwo) return 5;
+                  return 0;
+                };
+
+                const getOpacity = () => (leftTwo || rightTwo ? 0.5 : 1);
+
+                return (
+                  <div
+                    key={index}
+                    className={`absolute transition-transform duration-500 ease-in-out flex flex-col items-center text-center`}
+                    style={{
+                      transform: `${getScale()} translateX(${
+                        adjustedTranslateX * 100
+                      }%)`,
+                      zIndex: getZIndex(),
+                      opacity: getOpacity(),
+                    }}
+                  >
+                    <img
+                      src={flyer.src}
+                      alt={flyer.alt}
+                      className="rounded-lg shadow-lg w-[15rem] h-auto object-cover"
+                    />
+                    {isCurrent && (
+                      <div className="mt-4">
+                        <h4 className="text-xl font-bold">{flyer.title}</h4>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Navigation Buttons */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-4 lg:left-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg hover:bg-yellow transition-colors duration-300 z-10"
+            >
+              &#8592;
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-4 lg:right-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg hover:bg-yellow transition-colors duration-300 z-10"
+            >
+              &#8594;
+            </button>
           </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="flyers/2017sxsm.svg"
-              alt="South By San Marcos flyer, red and blue dots with an airplane flying over them and a tank below"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="flyers/2024eclipse.svg"
-              alt="Eclipse flyer, purple and blue campsite with a fire under a combined moon and sun"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="flyers/2023valentines.png"
-              alt="Valentines flyer, retro theme showing a stylized sunset and many hearts"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="flyers/2024peterpan.png"
-              alt="Save Peter Pan Putt Putt flyer, quirky design with a large dinosaur and lots of color"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="flyers/2023jesse1.svg"
-              alt="Jesse's Birthday flyer, a wavy retro design highlighting a man's watch"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="flyers/2023jesse2.svg"
-              alt="Jesse's Birthday schedule, green, orange, and brown flags displaying activities for each hour"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="flyers/2022ramzi.png"
-              alt="Ramzi's birthday flyer, a spoof on the Hercules movie poster with the faces replaced"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-        </div>
+        </section>
 
         {/* Art */}
         <h3 className="text-2xl font-semibold text-center mb-4">Art</h3>
