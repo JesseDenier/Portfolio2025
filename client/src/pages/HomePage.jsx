@@ -165,8 +165,8 @@ const HomePage = () => {
     <main className="text-darkgreen font-sans">
       {/* About Me Section */}
       <section
-        id="AboutMe"
-        className="p-6 flex items-center gap-6 justify-center"
+        id="About"
+        className="p-6 flex items-center gap-6 justify-center scroll-mt-20"
       >
         <div className="bg-lightgreen shadow-lg rounded-lg p-6 w-full max-w-4xl">
           <div className="flex items-center gap-6">
@@ -193,7 +193,7 @@ const HomePage = () => {
       {/* Portfolio Section */}
       <section id="Portfolio" className="p-6">
         {/* Projects Section */}
-        <section id="Projects">
+        <section id="Projects" className=" scroll-mt-20">
           <h2 className="text-3xl font-bold text-center mb-6">Projects</h2>
           {/* Full Stack Web Development Section */}
           <section id="FullStack">
@@ -286,7 +286,7 @@ const HomePage = () => {
         {/* Divider */}
         <hr className="border-t-2 border-darkgreen my-8" />
         {/* Marketing Section */}
-        <section id="Marketing">
+        <section id="Marketing" className=" scroll-mt-20">
           <h2 className="text-3xl font-bold text-center mb-6">Marketing</h2>
           {/* Logos Section */}
           <section id="Logos">
