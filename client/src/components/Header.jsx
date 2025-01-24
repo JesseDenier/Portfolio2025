@@ -1,23 +1,19 @@
 import React from "react";
 
+import { PersonalLogo } from "./Logos";
+
 const Header = () => {
   return (
     <header className="bg-darkgreen text-white py-2 px-6 sticky top-0 shadow-md z-50">
       <div className="flex justify-between items-center">
-        {/* Logo or Name */}
+        {/* Logo and Name */}
         <div className="flex items-center gap-2">
-          {/* Inline SVG for Favicon with Hover Effect */}
+          {/* Inline SVG for Logo with Hover Effect */}
           <a
             href="#Home"
             className="flex items-center gap-2 hover:text-yellow transform hover:scale-105 transition-transform transition-colors duration-300"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 142.9 173.8"
-              className="h-6 w-6 fill-current"
-            >
-              <path d="M80.6,173.8l-15.2,0L0,108.4l0-15.2h35.4c-10.2-9.9-16.6-23.7-16.6-39H34c0,18.9,13.5,34.7,31.4,38.3V0H73 c29.9,0,54.2,24.3,54.2,54.2c0,15.3-6.4,29.1-16.6,39h32.3v15.2H80.6V173.8z M21.5,108.4l44,44v-44H21.5z M80.6,15.9v76.5 C98.5,88.9,112,73.1,112,54.2S98.5,19.5,80.6,15.9z" />
-            </svg>
+            <PersonalLogo className="h-6 w-6 fill-current group-hover:scale-105 transition-transform duration-300" />
             <h1 className="text-xl font-bold">Jesse Denier</h1>
           </a>
         </div>
