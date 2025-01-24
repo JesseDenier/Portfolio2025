@@ -33,45 +33,44 @@ const HomePage = () => {
   // Array of flyer objects
   const flyers = [
     {
+      title: "South By San Marcos 2016",
+      alt: "Green pull-tab flyer showing a musician on stage",
       src: "flyers/2016sxsm.png",
-      alt: "South By San Marcos Flyer",
-      description: "Green pull-tab flyer showing a musician on stage.",
     },
     {
+      title: "South By San Marcos 2017",
+      alt: "Red, white, and blue flyer with stars and stripes",
       src: "flyers/2017sxsm.svg",
-      alt: "South By San Marcos Flyer",
-      description: "Red and blue dots with an airplane and tank.",
     },
     {
+      title: "Eclipse Viewing",
+      alt: "Purple flyer with a campsite, fire, and combined moon and sun",
       src: "flyers/2024eclipse.svg",
-      alt: "Eclipse Flyer",
-      description: "Campsite with a fire under a combined moon and sun.",
     },
     {
+      title: "Valentine's Bar Crawl",
+      alt: "Retro flyer with a stylized sunset and hearts",
       src: "flyers/2023valentines.png",
-      alt: "Valentines Flyer",
-      description: "Retro theme with a stylized sunset and hearts.",
     },
     {
+      title: "Save Peter Pan Putt Putt",
+      alt: "Quirky flyer with a large dinosaur",
       src: "flyers/2024peterpan.png",
-      alt: "Save Peter Pan Putt Putt Flyer",
-      description: "Quirky design with a large dinosaur.",
     },
     {
+      title: "Friend's Birthday",
+      alt: "Hercules movie poster with faces replaced",
       src: "flyers/2022ramzi.png",
-      alt: "Ramzi's Birthday Flyer",
-      description: "Hercules movie poster with faces replaced.",
     },
     {
+      title: "My Birthday",
+      alt: "Wavy retro flyer highlighting a watch",
       src: "flyers/2023jesse1.svg",
-      alt: "Jesse's Birthday flyer",
-      description: "Wavy retro design with highlighting a watch.",
     },
     {
+      title: "Birthday Schedule",
+      alt: "Green, orange, and brown flags showing activities for each hour.",
       src: "flyers/2023jesse2.svg",
-      alt: "Jesse's Birthday Schedule",
-      description:
-        "Green, orange, and brown flags showing activities for each hour.",
     },
   ];
 
@@ -454,10 +453,10 @@ const HomePage = () => {
 
         {/* Flyers Section */}
         <section id="Flyers" className="p-6">
-          <h3 className="text-2xl font-semibold text-center mb-6">Flyers</h3>
+          <h3 className="text-3xl font-semibold text-center mb-6">Flyers</h3>
           <div className="relative w-full flex items-center justify-center overflow-hidden">
             {/* Carousel Container */}
-            <div className="relative flex items-center justify-center w-full h-96">
+            <div className="relative flex items-center justify-center w-full h-[30rem]">
               {flyers.map((flyer, index) => {
                 const isCurrent = index === currentIndex;
                 const isPrev =
@@ -467,11 +466,11 @@ const HomePage = () => {
                 return (
                   <div
                     key={index}
-                    className={`absolute transition-transform duration-500 ease-in-out ${
+                    className={`absolute transition-transform duration-500 ease-in-out flex flex-col items-center text-center ${
                       isCurrent
                         ? "z-20 opacity-100 scale-100"
                         : isPrev || isNext
-                        ? "z-10 opacity-50 scale-75"
+                        ? "z-10 opacity-70 scale-75"
                         : "z-0 opacity-0 scale-50"
                     }`}
                     style={{
@@ -487,12 +486,12 @@ const HomePage = () => {
                     <img
                       src={flyer.src}
                       alt={flyer.alt}
-                      className="rounded-lg shadow-lg w-80 h-auto object-cover"
+                      className="rounded-lg shadow-lg w-[18rem] h-auto object-cover"
                     />
                     {isCurrent && (
-                      <p className="text-center mt-2 text-darkgreen font-medium">
-                        {flyer.description}
-                      </p>
+                      <div className="mt-4">
+                        <h4 className="text-xl font-bold">{flyer.title}</h4>
+                      </div>
                     )}
                   </div>
                 );
