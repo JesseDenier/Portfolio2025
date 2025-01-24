@@ -459,6 +459,8 @@ const HomePage = () => {
             <div className="relative flex items-center justify-center w-full h-[30rem]">
               {flyers.map((flyer, index) => {
                 const isCurrent = index === currentIndex;
+
+                // Wrap-around calculations for neighboring flyers
                 const leftOne =
                   index === (currentIndex - 1 + flyers.length) % flyers.length;
                 const leftTwo =
@@ -466,12 +468,20 @@ const HomePage = () => {
                 const rightOne = index === (currentIndex + 1) % flyers.length;
                 const rightTwo = index === (currentIndex + 2) % flyers.length;
 
-                // Render only 5 flyers (center + 2 on each side)
+                // Render only the relevant 5 flyers
                 if (
                   !(isCurrent || leftOne || leftTwo || rightOne || rightTwo)
                 ) {
                   return null;
                 }
+
+                // Adjust transform to handle wrap-around
+                const relativeIndex =
+                  (index - currentIndex + flyers.length) % flyers.length; // Relative position
+                const adjustedTranslateX =
+                  relativeIndex > flyers.length / 2
+                    ? relativeIndex - flyers.length
+                    : relativeIndex; // Wrap around when going beyond halfway
 
                 const getScale = () => {
                   if (isCurrent) return "scale(1)";
@@ -495,7 +505,7 @@ const HomePage = () => {
                     className={`absolute transition-transform duration-500 ease-in-out flex flex-col items-center text-center`}
                     style={{
                       transform: `${getScale()} translateX(${
-                        (index - currentIndex) * 100
+                        adjustedTranslateX * 100
                       }%)`,
                       zIndex: getZIndex(),
                       opacity: getOpacity(),
