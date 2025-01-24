@@ -10,7 +10,7 @@ const Header = () => {
         <div className="flex items-center gap-2">
           {/* Inline SVG for Logo with Hover Effect */}
           <a
-            href="#Home"
+            href="#About"
             className="flex items-center gap-2 hover:text-yellow transform hover:scale-105 transition-transform transition-colors duration-300"
           >
             <PersonalLogo className="h-6 w-6 fill-current group-hover:scale-105 transition-transform duration-300" />
@@ -20,6 +20,12 @@ const Header = () => {
 
         {/* Centered Navigation Links */}
         <nav className="flex-1 flex justify-center gap-6 text-lg items-center">
+          <a
+            href="#About"
+            className="hover:text-yellow transform hover:scale-105 transition-transform duration-300"
+          >
+            About
+          </a>
           <a
             href="#Projects"
             className="hover:text-yellow transform hover:scale-105 transition-transform duration-300"
@@ -31,12 +37,6 @@ const Header = () => {
             className="hover:text-yellow transform hover:scale-105 transition-transform duration-300"
           >
             Marketing
-          </a>
-          <a
-            href="#About"
-            className="hover:text-yellow transform hover:scale-105 transition-transform duration-300"
-          >
-            About
           </a>
         </nav>
 
