@@ -529,13 +529,13 @@ const HomePage = () => {
             {/* Navigation Buttons */}
             <button
               onClick={handlePrev}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-4 py-2 rounded-full shadow-lg hover:bg-yellow transition-colors duration-300"
+              className="absolute left-4 lg:left-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg hover:bg-yellow transition-colors duration-300 z-10"
             >
               &#8592;
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-4 py-2 rounded-full shadow-lg hover:bg-yellow transition-colors duration-300"
+              className="absolute right-4 lg:right-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg hover:bg-yellow transition-colors duration-300 z-10"
             >
               &#8594;
             </button>
