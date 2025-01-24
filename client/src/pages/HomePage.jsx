@@ -409,7 +409,7 @@ const HomePage = () => {
           {/* CSMBB */}
           <div className="h-auto flex flex-col relative overflow-visible group">
             <img
-              src="logos/csmbb.png"
+              src="logos/csmbb.svg"
               alt="CSMBB Logo, a 2x2 blue grid with each partner's name on it's right"
               className="w-full transition-transform duration-500 ease-out"
             />
@@ -421,7 +421,7 @@ const HomePage = () => {
           {/* Tori's Tots */}
           <div className="h-auto flex flex-col relative overflow-visible group">
             <img
-              src="logos/tori.png"
+              src="logos/toritots.svg"
               alt="Tori's Tots Logo, a green tree growing from a heart into a lightbulb"
               className="w-full transition-transform duration-500 ease-out"
             />
@@ -433,7 +433,7 @@ const HomePage = () => {
           {/* Hemlock Aerials */}
           <div className="h-auto flex flex-col relative overflow-visible group">
             <img
-              src="logos/hemlock.png"
+              src="logos/hemlock.svg"
               alt="Hemlock Aerials Logo, a geometric tree growing from simplistic lines"
               className="w-full transition-transform duration-500 ease-out"
             />
@@ -443,7 +443,7 @@ const HomePage = () => {
           {/* Corden's Court */}
           <div className="h-auto flex flex-col relative overflow-visible group">
             <img
-              src="logos/corden.png"
+              src="logos/corden.svg"
               alt="Corden's Court logo, a round table surrounded by knights holding beer steins"
               className="w-full transition-transform duration-500 ease-out"
             />
@@ -547,20 +547,6 @@ const HomePage = () => {
         <div className="grid grid-cols-4 gap-4">
           <div className="h-auto relative overflow-visible group">
             <img
-              src="art/austin.png"
-              alt="Collection of historic Austin signs in a collage over an Austin road map"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
-              src="art/greek.png"
-              alt="Greek inspired pegasus, ouroboros, and woman in a sun"
-              className="w-full transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="h-auto relative overflow-visible group">
-            <img
               src="art/panda.png"
               alt="A cute red panda holding a bag of popeyes and a biscuit"
               className="w-full transition-transform duration-500 ease-out"
@@ -568,7 +554,21 @@ const HomePage = () => {
           </div>
           <div className="h-auto relative overflow-visible group">
             <img
-              src="art/time_lord.png"
+              src="art/austin.svg"
+              alt="Collection of historic Austin signs in a collage over an Austin road map"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="art/greek.svg"
+              alt="Greek inspired pegasus, ouroboros, and woman in a sun"
+              className="w-full transition-transform duration-500 ease-out"
+            />
+          </div>
+          <div className="h-auto relative overflow-visible group">
+            <img
+              src="art/time_lord.svg"
               alt="Celtics player Rob Williams III blocking Steph Curry's shot in outerspace"
               className="w-full transition-transform duration-500 ease-out"
             />
