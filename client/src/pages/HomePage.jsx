@@ -30,7 +30,81 @@ const HomePage = () => {
     }));
   };
 
-  // Array of flyer objects
+  // Object Arrays
+  const fullstacks = [
+    {
+      title: "The Format Group",
+      description: "Austin-Based Instructional Design Firm",
+      href: "https://www.formatllc.com/",
+      src: "full_stack/format.png",
+      alt: "Format Website, with a splash image of an artistic classroom",
+    },
+    {
+      title: "ISCA Publications",
+      description: "International School Counselor Association Library",
+      href: "https://www.iscapublications.com/",
+      src: "full_stack/isca.png",
+      alt: "ISCA Publications site, displaying multiple book covers",
+    },
+  ];
+  const samples = [
+    {
+      title: "Javascript Quiz",
+      description: "Timed Multiple Choice Game",
+      href: "https://jessedenier.github.io/Multiple-Choice-Quiz/",
+      src: "code_samples/quiz.png",
+      alt: "Javascript Quiz Website, showing a question and answer choices",
+    },
+    {
+      title: "Password Generator",
+      description: "Customizable Random String Tool",
+      href: "https://jessedenier.github.io/Password-Generator/",
+      src: "code_samples/password.png",
+      alt: "Password Generator Website, showing an empty text field and a button ",
+    },
+    {
+      title: "Weather Dashboard",
+      description: "Simplified Location-Based Forecast",
+      href: "https://jessedenier.github.io/Weather-Dashboard/",
+      src: "code_samples/weather.png",
+      alt: "Weather Dashboard Website, showing a search bar and a forecast",
+    },
+    {
+      title: "Valentines Bingo",
+      description: "Real-World Scavenger Hunt Game",
+      href: "https://jessedenier.github.io/Bingo/",
+      src: "code_samples/bingo.png",
+      alt: "Pink Bingo Website, showing a 5x5 grid of white space",
+    },
+    {
+      title: "Work Scheduler",
+      description: "Daily Planning Tool",
+      href: "https://jessedenier.github.io/Work-Scheduler/",
+      src: "code_samples/scheduler.png",
+      alt: "Schedule Website, showing an hourly schedule",
+    },
+    {
+      title: "Recipe Creator",
+      description: "Ingredient-Based Recipe Generator",
+      href: "https://jessedenier.github.io/Recipe-Creator/",
+      src: "code_samples/recipe.png",
+      alt: "Recipe Webiste, showing a line art graphic and input form for ingredients",
+    },
+    {
+      title: "Parlay Calculator",
+      description: "Probability Estimation Tool",
+      href: "https://jessedenier.github.io/Parlay-Probability/",
+      src: "code_samples/parlay.png",
+      alt: "Parlay Calculator Website, showing a 6 different input forms and a submit button",
+    },
+    {
+      title: "Expense Tracker",
+      description: "Simple Budgeting Tool",
+      href: "https://expense-tracker-ut-8e4127567b9a.herokuapp.com/login",
+      src: "code_samples/expense.png",
+      alt: "Expense Tracking Website, showing a list of charges and a total",
+    },
+  ];
   const flyers = [
     {
       title: "South By San Marcos 2016",
@@ -113,6 +187,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
       {/* Portfolio Section */}
       <section id="Portfolio" className="p-6">
         {/* Projects Section */}
@@ -124,279 +199,85 @@ const HomePage = () => {
               Full Stack Web Development
             </h3>
             <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://www.formatllc.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "format")}
-                  onMouseLeave={() => resetHoverStyle("format")}
+              {fullstacks.map((project, index) => (
+                <div
+                  key={index}
+                  className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group"
                 >
-                  <img
-                    src="full_stack/format.png"
-                    alt="The Format Group Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.format || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    The Format Group
-                  </strong>
-                  <span className="text-sm text-white">
-                    Austin-Based Instructional Design Firm
-                  </span>
+                  <a
+                    className="items-center justify-center relative overflow-visible"
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseMove={(e) =>
+                      handleMouseMove(e, `fullstack-${index}`)
+                    }
+                    onMouseLeave={() => resetHoverStyle(`fullstack-${index}`)}
+                  >
+                    <img
+                      src={project.src}
+                      alt={project.alt}
+                      className="w-full transition-transform duration-500 ease-out"
+                      style={
+                        hoverStyles[`fullstack-${index}`] || {
+                          transform: "none",
+                        }
+                      }
+                    />
+                  </a>
+                  <div className="p-4 flex flex-col">
+                    <strong className="text-lg text-white font-bold">
+                      {project.title}
+                    </strong>
+                    <span className="text-sm text-white">
+                      {project.description}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://www.iscapublications.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "isca")}
-                  onMouseLeave={() => resetHoverStyle("isca")}
-                >
-                  <img
-                    src="full_stack/isca.png"
-                    alt="ISCA Publications Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.isca || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    ISCA Publications
-                  </strong>
-                  <span className="text-sm text-white">
-                    International School Counselor Association Library
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
           </section>
+
           {/* Samples Section */}
           <section id="Samples">
             <h3 className="text-2xl font-semibold text-center mb-4">
               Code Samples
             </h3>
             <div className="grid grid-cols-4 gap-4 mb-8">
-              {/* Javascript Quiz */}
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://jessedenier.github.io/Multiple-Choice-Quiz/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "quiz")}
-                  onMouseLeave={() => resetHoverStyle("quiz")}
+              {samples.map((sample, index) => (
+                <div
+                  key={index}
+                  className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group"
                 >
-                  <img
-                    src="code_samples/quiz.png"
-                    alt="Javascript Quiz Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.quiz || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    Javascript Quiz
-                  </strong>
-                  <span className="text-sm text-white">
-                    Timed Multiple Choice Game
-                  </span>
+                  <a
+                    className="items-center justify-center relative overflow-visible"
+                    href={sample.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseMove={(e) => handleMouseMove(e, `sample-${index}`)}
+                    onMouseLeave={() => resetHoverStyle(`sample-${index}`)}
+                  >
+                    <img
+                      src={sample.src}
+                      alt={sample.alt}
+                      className="w-full transition-transform duration-500 ease-out"
+                      style={
+                        hoverStyles[`sample-${index}`] || {
+                          transform: "none",
+                        }
+                      }
+                    />
+                  </a>
+                  <div className="p-4 flex flex-col">
+                    <strong className="text-lg text-white font-bold">
+                      {sample.title}
+                    </strong>
+                    <span className="text-sm text-white">
+                      {sample.description}
+                    </span>
+                  </div>
                 </div>
-              </div>
-
-              {/* Password Generator */}
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://jessedenier.github.io/Password-Generator/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "password")}
-                  onMouseLeave={() => resetHoverStyle("password")}
-                >
-                  <img
-                    src="code_samples/password.png"
-                    alt="Password Generator Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.password || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    Password Generator
-                  </strong>
-                  <span className="text-sm text-white">
-                    Customizable Random String Tool
-                  </span>
-                </div>
-              </div>
-
-              {/* Weather Dashboard */}
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://jessedenier.github.io/Weather-Dashboard/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "weather")}
-                  onMouseLeave={() => resetHoverStyle("weather")}
-                >
-                  <img
-                    src="code_samples/weather.png"
-                    alt="Weather Dashboard Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.weather || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    Weather Dashboard
-                  </strong>
-                  <span className="text-sm text-white">
-                    Simplified Location-Based Forecast
-                  </span>
-                </div>
-              </div>
-
-              {/* Bingo */}
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://jessedenier.github.io/Bingo/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "bingo")}
-                  onMouseLeave={() => resetHoverStyle("bingo")}
-                >
-                  <img
-                    src="code_samples/bingo.png"
-                    alt="Bingo Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.bingo || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    Valentines Bingo
-                  </strong>
-                  <span className="text-sm text-white">
-                    Multiplayer Real-World Scavenger Hunt Game
-                  </span>
-                </div>
-              </div>
-
-              {/* Work Scheduler */}
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://jessedenier.github.io/Work-Scheduler/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "scheduler")}
-                  onMouseLeave={() => resetHoverStyle("scheduler")}
-                >
-                  <img
-                    src="code_samples/scheduler.png"
-                    alt="Work Scheduler Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.scheduler || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    Work Scheduler
-                  </strong>
-                  <span className="text-sm text-white">
-                    Daily Planning Tool
-                  </span>
-                </div>
-              </div>
-
-              {/* Recipe Creator */}
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://jessedenier.github.io/Recipe-Creator/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "recipe")}
-                  onMouseLeave={() => resetHoverStyle("recipe")}
-                >
-                  <img
-                    src="code_samples/recipe.png"
-                    alt="Recipe Creator Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.recipe || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    Recipe Creator
-                  </strong>
-                  <span className="text-sm text-white">
-                    Ingredient-Based Recipe Generator
-                  </span>
-                </div>
-              </div>
-
-              {/* Parlay Calculator */}
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://jessedenier.github.io/Parlay-Probability/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "parlay")}
-                  onMouseLeave={() => resetHoverStyle("parlay")}
-                >
-                  <img
-                    src="code_samples/parlay.png"
-                    alt="Parlay Calculator Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.parlay || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    Parlay Calculator
-                  </strong>
-                  <span className="text-sm text-white">
-                    Probability Estimation Tool
-                  </span>
-                </div>
-              </div>
-
-              {/* Expense Tracker */}
-              <div className="h-auto bg-darkgreen rounded-lg shadow flex flex-col pt-4 border-2 border-darkgreen relative overflow-visible group">
-                <a
-                  className="items-center justify-center relative overflow-visible"
-                  href="https://expense-tracker-ut-8e4127567b9a.herokuapp.com/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseMove={(e) => handleMouseMove(e, "expense")}
-                  onMouseLeave={() => resetHoverStyle("expense")}
-                >
-                  <img
-                    src="code_samples/expense.png"
-                    alt="Expense Tracker Website"
-                    className="w-full transition-transform duration-500 ease-out"
-                    style={hoverStyles.expense || { transform: "none" }}
-                  />
-                </a>
-                <div className="p-4 flex flex-col">
-                  <strong className="text-lg text-white font-bold">
-                    Expense Tracker
-                  </strong>
-                  <span className="text-sm text-white">
-                    Simple Budgeting Tool
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
           </section>
         </section>
