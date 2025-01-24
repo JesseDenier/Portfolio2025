@@ -4,9 +4,9 @@ const Header = () => {
   return (
     <header className="bg-darkgreen text-white py-2 px-6 sticky top-0 shadow-md z-50">
       <div className="flex justify-between items-center">
-        {/* Logo or Name */}
+        {/* Logo and Name */}
         <div className="flex items-center gap-2">
-          {/* Inline SVG for Favicon with Hover Effect */}
+          {/* Inline SVG for Logo with Hover Effect */}
           <a
             href="#Home"
             className="flex items-center gap-2 hover:text-yellow transform hover:scale-105 transition-transform transition-colors duration-300"

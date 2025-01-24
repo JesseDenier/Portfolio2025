@@ -1,8 +1,7 @@
 // Imports React library
 import React, { useState } from "react";
 
-import GitHubLogo from "../components/GitHubLogo";
-import LinkedInLogo from "../components/LinkedInLogo";
+import { GitHubLogo, LinkedInLogo } from "../components/Logos";
 
 const HomePage = () => {
   // Logic for the hover effect on all projects.
