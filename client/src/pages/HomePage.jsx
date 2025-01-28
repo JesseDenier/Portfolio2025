@@ -166,7 +166,7 @@ const HomePage = () => {
       {/* About Me Section */}
       <section
         id="About"
-        className="p-6 flex items-center gap-6 justify-center scroll-mt-20"
+        className="flex items-center justify-center scroll-mt-20 sm:min-h-[580px] p-6"
       >
         <div className="bg-lightgreen shadow-lg rounded-lg p-6 w-full max-w-4xl">
           <div className="flex items-center gap-6">
@@ -200,7 +200,7 @@ const HomePage = () => {
             <h3 className="text-2xl font-semibold text-center mb-4">
               Full Stack Web Development
             </h3>
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {fullstacks.map((project, index) => (
                 <div
                   key={index}
@@ -245,7 +245,7 @@ const HomePage = () => {
             <h3 className="text-2xl font-semibold text-center mb-4">
               Code Samples
             </h3>
-            <div className="grid grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
               {samples.map((sample, index) => (
                 <div
                   key={index}
@@ -291,7 +291,7 @@ const HomePage = () => {
           {/* Logos Section */}
           <section id="Logos">
             <h3 className="text-2xl font-semibold text-center mb-4">Logos</h3>
-            <div className="grid grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
               <div className="h-auto flex flex-col relative overflow-visible group">
                 <img
                   src="logos/csmbb.svg"
@@ -414,13 +414,13 @@ const HomePage = () => {
               {/* Navigation Buttons */}
               <button
                 onClick={handlePrev}
-                className="absolute left-4 lg:left-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg hover:bg-yellow transition-colors duration-300 z-10"
+                className="absolute left-4 lg:left-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg  transition-colors duration-300 z-10"
               >
                 &#8592;
               </button>
               <button
                 onClick={handleNext}
-                className="absolute right-4 lg:right-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg hover:bg-yellow transition-colors duration-300 z-10"
+                className="absolute right-4 lg:right-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg transition-colors duration-300 z-10"
               >
                 &#8594;
               </button>
@@ -430,7 +430,7 @@ const HomePage = () => {
           {/* Art Section*/}
           <section id="Art">
             <h3 className="text-2xl font-semibold text-center mb-4">Art</h3>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="h-auto relative overflow-visible group">
                 <img
                   src="art/panda.png"
@@ -471,7 +471,7 @@ const HomePage = () => {
         </p>
         <div className="text-center mx-auto lg:absolute lg:inset-x-0">
           <a
-            href="mailto:jessecdenier@gmail.com?subject=I%20want%20to%20hire%20you!"
+            href="mailto:jessecdenier@gmail.com"
             className="text-white hover:text-yellow transform hover:scale-105 transition-transform duration-300 inline-block"
           >
             jessecdenier@gmail.com
