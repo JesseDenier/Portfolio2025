@@ -108,6 +108,28 @@ const HomePage = () => {
       alt: "Expense Tracking Website, showing a list of charges and a total",
     },
   ];
+  const logos = [
+    {
+      title: "Law Offices of Cornell Smith & Mierl",
+      alt: "CSMBB Logo, a 2x2 blue grid with each partner's name on it's right",
+      src: "logos/csmbb.svg",
+    },
+    {
+      title: "Tori's Tots Nursery",
+      alt: "Tori's Tots Logo, a green tree growing from a heart into a lightbulb",
+      src: "logos/toritots.svg",
+    },
+    {
+      title: "Hemlock Aerials",
+      alt: "Hemlock Aerials Logo, a geometric tree growing from simplistic lines",
+      src: "logos/hemlock.svg",
+    },
+    {
+      title: "Corden's Court",
+      alt: "Corden's Court logo, a round table surrounded by knights holding beer steins",
+      src: "logos/corden.svg",
+    },
+  ];
   const flyers = [
     {
       title: "South By San Marcos 2016",
@@ -148,6 +170,24 @@ const HomePage = () => {
       title: "Birthday Schedule",
       alt: "Green, orange, and brown flags showing activities for each hour.",
       src: "flyers/2023jesse2.svg",
+    },
+  ];
+  const art = [
+    {
+      alt: "A cute red panda holding a bag of popeyes and a biscuit",
+      src: "art/panda.png",
+    },
+    {
+      alt: "Collection of historic Austin signs in a collage over an Austin road map",
+      src: "art/austin.svg",
+    },
+    {
+      alt: "Greek inspired pegasus, ouroboros, and woman in a sun",
+      src: "art/greek.svg",
+    },
+    {
+      alt: "Celtics player Rob Williams III blocking Steph Curry's shot in outerspace",
+      src: "art/time_lord.svg",
     },
   ];
 
@@ -312,48 +352,24 @@ const HomePage = () => {
           <section id="Logos">
             <h3 className="text-2xl font-semibold text-center mb-4">Logos</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-              <div className="h-auto flex flex-col relative overflow-visible group">
-                <img
-                  src="logos/csmbb.svg"
-                  alt="CSMBB Logo, a 2x2 blue grid with each partner's name on it's right"
-                  className="w-full transition-transform duration-500 ease-out"
-                />
-                <strong className="p-2 text-lg font-bold">
-                  Law Offices of Cornell Smith & Mierl
-                </strong>
-              </div>
-              <div className="h-auto flex flex-col relative overflow-visible group">
-                <img
-                  src="logos/toritots.svg"
-                  alt="Tori's Tots Logo, a green tree growing from a heart into a lightbulb"
-                  className="w-full transition-transform duration-500 ease-out"
-                />
-                <strong className="p-2 text-lg font-bold">
-                  Tori's Tots Nursery
-                </strong>
-              </div>
-              <div className="h-auto flex flex-col relative overflow-visible group">
-                <img
-                  src="logos/hemlock.svg"
-                  alt="Hemlock Aerials Logo, a geometric tree growing from simplistic lines"
-                  className="w-full transition-transform duration-500 ease-out"
-                />
-                <strong className="p-2 text-lg font-bold">
-                  Hemlock Aerials
-                </strong>
-              </div>
-              <div className="h-auto flex flex-col relative overflow-visible group">
-                <img
-                  src="logos/corden.svg"
-                  alt="Corden's Court logo, a round table surrounded by knights holding beer steins"
-                  className="w-full transition-transform duration-500 ease-out"
-                />
-                <strong className="p-2 text-lg font-bold">
-                  Corden's Court
-                </strong>
-              </div>
+              {logos.map((item, index) => (
+                <div
+                  key={index}
+                  className="h-auto flex flex-col relative overflow-visible group"
+                >
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-full transition-transform duration-500 ease-out"
+                  />
+                  <strong className="p-2 text-lg font-bold">
+                    {item.title}
+                  </strong>
+                </div>
+              ))}
             </div>
           </section>
+
           {/* Flyers Section */}
           <section id="Flyers" className="p-6">
             <h3 className="text-2xl font-semibold text-center mb-6">Flyers</h3>
@@ -451,34 +467,18 @@ const HomePage = () => {
           <section id="Art">
             <h3 className="text-2xl font-semibold text-center mb-4">Art</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="h-auto relative overflow-visible group">
-                <img
-                  src="art/panda.png"
-                  alt="A cute red panda holding a bag of popeyes and a biscuit"
-                  className="w-full transition-transform duration-500 ease-out"
-                />
-              </div>
-              <div className="h-auto relative overflow-visible group">
-                <img
-                  src="art/austin.svg"
-                  alt="Collection of historic Austin signs in a collage over an Austin road map"
-                  className="w-full transition-transform duration-500 ease-out"
-                />
-              </div>
-              <div className="h-auto relative overflow-visible group">
-                <img
-                  src="art/greek.svg"
-                  alt="Greek inspired pegasus, ouroboros, and woman in a sun"
-                  className="w-full transition-transform duration-500 ease-out"
-                />
-              </div>
-              <div className="h-auto relative overflow-visible group">
-                <img
-                  src="art/time_lord.svg"
-                  alt="Celtics player Rob Williams III blocking Steph Curry's shot in outerspace"
-                  className="w-full transition-transform duration-500 ease-out"
-                />
-              </div>
+              {art.map((item, index) => (
+                <div
+                  key={index}
+                  className="h-auto relative overflow-visible group"
+                >
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-full transition-transform duration-500 ease-out"
+                  />
+                </div>
+              ))}
             </div>
           </section>
         </section>
