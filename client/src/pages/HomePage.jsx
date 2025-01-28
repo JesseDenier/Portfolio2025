@@ -33,6 +33,27 @@ const HomePage = () => {
     }));
   };
 
+  // Logic for the click effect on all marketing images.
+  const expandImage = (imageSrc, imageAlt) => {
+    const modal = document.createElement("div");
+    modal.className =
+      "expandedImageModal fixed inset-0 bg-white bg-opacity-[.90] flex justify-center items-center z-50";
+
+    const modalImg = document.createElement("img");
+    modalImg.src = imageSrc;
+    modalImg.alt = imageAlt;
+    modalImg.className = "max-w-[75vw] max-h-[75vh] object-contain"; // Constrained size with object-contain to maintain aspect ratio
+    modal.appendChild(modalImg);
+
+    // Append modal to body
+    document.body.appendChild(modal);
+
+    // Event listener to close modal when clicked
+    modal.addEventListener("click", () => {
+      modal.remove();
+    });
+  };
+
   // Object Arrays
   const fullstacks = [
     {
@@ -346,7 +367,7 @@ const HomePage = () => {
         {/* Divider */}
         <hr className="border-t-2 border-darkgreen my-8" />
         {/* Marketing Section */}
-        <section id="Marketing" className=" scroll-mt-20">
+        <section id="Marketing" className="scroll-mt-20">
           <h2 className="text-3xl font-bold text-center mb-6">Marketing</h2>
           {/* Logos Section */}
           <section id="Logos">
@@ -361,6 +382,7 @@ const HomePage = () => {
                     src={item.src}
                     alt={item.alt}
                     className="w-full transition-transform duration-500 ease-out"
+                    onClick={() => expandImage(item.src, item.alt)} // Click to expand image
                   />
                   <strong className="p-2 text-lg font-bold">
                     {item.title}
@@ -423,7 +445,7 @@ const HomePage = () => {
                   return (
                     <div
                       key={index}
-                      className={`absolute transition-transform duration-500 ease-in-out flex flex-col items-center text-center`}
+                      className="absolute transition-transform duration-500 ease-in-out flex flex-col items-center text-center"
                       style={{
                         transform: `${getScale()} translateX(${
                           adjustedTranslateX * 100
@@ -436,6 +458,7 @@ const HomePage = () => {
                         src={flyer.src}
                         alt={flyer.alt}
                         className="rounded-lg shadow-lg w-[15rem] h-auto object-cover"
+                        onClick={() => expandImage(flyer.src, flyer.alt)} // Click to expand image
                       />
                       {isCurrent && (
                         <div className="mt-4">
@@ -450,7 +473,7 @@ const HomePage = () => {
               {/* Navigation Buttons */}
               <button
                 onClick={handlePrev}
-                className="absolute left-4 lg:left-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg  transition-colors duration-300 z-10"
+                className="absolute left-4 lg:left-8 top-1/2 transform -translate-y-1/2 bg-darkgreen text-white px-2 lg:px-4 py-2 lg:py-2 rounded-full shadow-lg transition-colors duration-300 z-10"
               >
                 &#8592;
               </button>
@@ -463,7 +486,7 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Art Section*/}
+          {/* Art Section */}
           <section id="Art">
             <h3 className="text-2xl font-semibold text-center mb-4">Art</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -476,6 +499,7 @@ const HomePage = () => {
                     src={item.src}
                     alt={item.alt}
                     className="w-full transition-transform duration-500 ease-out"
+                    onClick={() => expandImage(item.src, item.alt)} // Click to expand image
                   />
                 </div>
               ))}
