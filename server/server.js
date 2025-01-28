@@ -44,10 +44,13 @@ const server = new ApolloServer({
 const startApolloServer = async () => {
   // Start the Apollo server
   await server.start();
+
   // Middleware to handle GraphQL requests
   app.use("/graphql", expressMiddleware(server, {}));
+
   // Serve static files from the dist directory
   app.use(express.static(path.join(__dirname, "../client/dist")));
+
   // Wildcard route to serve the index.html file for SPA routing
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/dist/index.html"));
