@@ -1,5 +1,6 @@
 // Imports React library
 import React, { useState } from "react";
+import Typewriter from "typewriter-effect";
 
 import { GitHubLogo, LinkedInLogo } from "../components/Logos";
 
@@ -178,13 +179,32 @@ const HomePage = () => {
               />
             </div>
             <div className="w-3/4">
-              <p className="text-lg">
-                Hi, I'm Jesse Denier.
-                <br />
-                Austin native, digital handyman, and queso lover.
-                <br />
-                Experienced web developer, graphic designer, and tech expert.
-              </p>
+              <div className="text-lg">
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString(
+                        "Hi, I'm Jesse Denier.<br>Austin native, digital handyman, and queso lover.<br>Experienced web developer, graphic designer, and tech expert."
+                      )
+                      .callFunction(() => {
+                        // Stop the blinking cursor by setting opacity to 0 and removing the animation
+                        const cursor = document.querySelector(
+                          ".Typewriter__cursor"
+                        );
+                        if (cursor) {
+                          cursor.style.animation = "none";
+                          cursor.style.opacity = "0";
+                        }
+                      })
+                      .start(); // Starts the typewriting animation
+                  }}
+                  options={{
+                    delay: 30, // Typing speed
+                    html: true, // Enable HTML tags for line breaks
+                    loop: false, // Do not loop the text
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
