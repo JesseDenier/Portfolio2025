@@ -5,7 +5,9 @@ import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import path from "path";
 import { fileURLToPath } from "url";
+import { authMiddleware } from "./utils/auth.js";
 import { typeDefs, resolvers } from "./schemas/index.js";
+import db from "./config/connection.js";
 import cookieParser from "cookie-parser";
 
 // Set __dirname for ES modules
@@ -20,8 +22,7 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: "https://jessedenier.com", // Ensure this matches your frontend URL exactly
-  //! Confirm this doesn't cause errors before updating site.
+  origin: "https://www.iscapublications.com", // Ensure this matches your frontend URL exactly
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
   credentials: true, // If you need to allow credentials like cookies
   optionsSuccessStatus: 200, // Response status for successful OPTIONS requests
@@ -45,15 +46,44 @@ const startApolloServer = async () => {
   // Start the Apollo server
   await server.start();
 
-  // Middleware to handle GraphQL requests
-  app.use("/graphql", expressMiddleware(server, {}));
+  // Middleware to handle GraphQL requests, applying the authentication middleware
+  app.use(
+    "/graphql",
+    expressMiddleware(server, {
+      context: authMiddleware, // Ensure that context is properly set up for authentication
+    })
+  );
 
   // Serve static files from the dist directory
   app.use(express.static(path.join(__dirname, "../client/dist")));
 
+  // Serve private files only to authenticated users
+  app.use("/private", (req, res, next) => {
+    // Use the authMiddleware function to check if the user is authenticated
+    authMiddleware({ req });
+
+    // If the user is authenticated, allow access to the private files
+    if (req.user) {
+      return express.static(path.join(__dirname, "private"))(req, res, next);
+    } else {
+      // Redirect to a relative path
+      // This is where users are sent when they try to bypass client side security and reach a file directly.
+      //! This could likely be made more dynamic in the future
+      return res.redirect("/login");
+    }
+  });
+
   // Wildcard route to serve the index.html file for SPA routing
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+  });
+
+  // Start the server once the database connection is open
+  db.once("open", () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+    });
   });
 };
 
