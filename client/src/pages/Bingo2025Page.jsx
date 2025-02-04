@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const bingoTasks = [
   [
@@ -31,6 +31,19 @@ const bingoTasks = [
 ];
 
 const Bingo2025Page = () => {
+  const [selectedCards, setSelectedCards] = useState({});
+
+  useEffect(() => {
+    const savedState = JSON.parse(localStorage.getItem("bingoState")) || {};
+    setSelectedCards(savedState);
+  }, []);
+
+  const toggleCard = (index) => {
+    const newState = { ...selectedCards, [index]: !selectedCards[index] };
+    setSelectedCards(newState);
+    localStorage.setItem("bingoState", JSON.stringify(newState));
+  };
+
   return (
     <div className="bg-pink-200 min-h-screen flex flex-col items-center text-center relative">
       <header className="w-full py-2 bg-pink-600 text-white text-lg font-bold absolute top-0">
@@ -41,14 +54,25 @@ const Bingo2025Page = () => {
       <main className="flex flex-col items-center justify-center flex-grow">
         <div className="grid grid-cols-5 gap-2 p-4">
           {bingoTasks.map((row, rowIndex) =>
-            row.map((task, colIndex) => (
-              <div
-                key={`${rowIndex}-${colIndex}`}
-                className="bg-white p-3 rounded shadow-md border border-gray-300 w-24 h-24 flex items-center justify-center text-sm"
-              >
-                {task}
-              </div>
-            ))
+            row.map((task, colIndex) => {
+              const index = `${rowIndex}-${colIndex}`;
+              return (
+                <div
+                  key={index}
+                  className="bg-white p-3 rounded shadow-md border border-gray-300 w-24 h-24 flex items-center justify-center text-sm relative cursor-pointer"
+                  onClick={() => toggleCard(index)}
+                >
+                  {task}
+                  {selectedCards[index] && (
+                    <img
+                      src="/bingo/Heart.png"
+                      alt="Heart"
+                      className="absolute top-0 left-0 w-full h-full object-contain opacity-75"
+                    />
+                  )}
+                </div>
+              );
+            })
           )}
         </div>
       </main>
