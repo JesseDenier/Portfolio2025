@@ -1,6 +1,6 @@
 // Imports React library
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 // Imports the Tailwind created CSS file for styling
 import "./output.css";
@@ -13,10 +13,15 @@ import ScrollToTop from "./utils/scrollToTop";
 
 // Functional component App
 const App = () => {
+  const location = useLocation();
+
+  // List of routes where the Header should be hidden
+  const hideHeaderRoutes = ["/bingo2025"];
+
   return (
     <>
-      {/* Header renders the custom component */}
-      <Header />
+      {/* Conditionally render the Header */}
+      {!hideHeaderRoutes.includes(location.pathname) && <Header />}
 
       {/* ScrollToTop ensures that every route change scrolls to the top */}
       <ScrollToTop />

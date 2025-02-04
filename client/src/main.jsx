@@ -15,6 +15,7 @@ import App from "./App";
 // Imports the pages the router will use to conditionally show the appropriate views
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
+import Bingo2025Page from "./pages/Bingo2025Page";
 
 // Defines the accessible routes and the components to render for each path
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "/bingo2025",
+        element: <Bingo2025Page />,
       },
     ],
   },
