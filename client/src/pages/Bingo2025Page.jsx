@@ -32,6 +32,7 @@ const bingoTasks = [
 
 const Bingo2025Page = () => {
   const [selectedCards, setSelectedCards] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const savedState = JSON.parse(localStorage.getItem("bingoState")) || {};
@@ -76,8 +77,14 @@ const Bingo2025Page = () => {
           )}
         </div>
       </main>
-      <footer className="w-full py-2 bg-pink-600 text-white text-sm absolute bottom-0">
-        <p>
+      <footer className="w-full py-2 bg-pink-600 text-white text-sm absolute bottom-0 flex justify-between items-center px-4">
+        <button
+          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md"
+          onClick={() => setIsModalOpen(true)}
+        >
+          Share
+        </button>
+        <p className="text-center flex-grow">
           Bingo starts at the first bar and ends when you leave the group!
           <br />
           Take pictures of each task and add to the
@@ -95,7 +102,28 @@ const Bingo2025Page = () => {
           <br />
           First person to blackout their bingo gets a special prize!
         </p>
+        <a
+          href="https://photos.app.goo.gl/xkhbdcL5ypAr2ieJ8"
+          target="_blank"
+          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md"
+        >
+          Album
+        </a>
       </footer>
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-white bg-opacity-75 flex justify-center items-center"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div className="w-4/5 h-4/5 bg-white flex justify-center items-center p-4 rounded-lg">
+            <img
+              src="/bingo/qr_jessedenierbingo2025.png"
+              alt="QR Code"
+              className="max-w-full max-h-full"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
