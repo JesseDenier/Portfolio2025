@@ -46,13 +46,15 @@ const Bingo2025Page = () => {
   };
 
   return (
-    <div className="bg-pink-200 min-h-screen flex flex-col items-center text-center relative">
-      <header className="w-full py-2 bg-pink-600 text-white text-lg font-bold absolute top-0">
+    <main className="bg-pink-200 min-h-screen flex flex-col items-center text-center relative">
+      {/* Header */}
+      <header className="w-full py-2 bg-pink-600 text-white text-lg font-bold">
         💖 ❤️ 2025 Galentine's with ❤️ 💕
         <br />
         💞 🥰 ❤️ the Bois Bingo ❤️ 😍 💗
       </header>
-      <main className="flex flex-col items-center justify-center flex-grow">
+      {/* Center */}
+      <div className="flex flex-col items-center justify-center flex-grow">
         <div className="grid grid-cols-5 gap-2 p-4">
           {bingoTasks.map((row, rowIndex) =>
             row.map((task, colIndex) => {
@@ -76,7 +78,8 @@ const Bingo2025Page = () => {
             })
           )}
         </div>
-      </main>
+      </div>
+      {/* Footer */}
       <footer className="w-full py-2 bg-pink-600 text-white text-sm absolute bottom-0 flex justify-between items-center px-4">
         <button
           className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md"
@@ -87,15 +90,6 @@ const Bingo2025Page = () => {
         <p className="text-center flex-grow">
           Bingo starts at the first bar and ends when you leave the group!
           <br />
-          Take pictures of each task and add to the
-          <a
-            href="https://photos.app.goo.gl/xkhbdcL5ypAr2ieJ8"
-            className="underline"
-          >
-            {" "}
-            PHOTO ALBUM
-          </a>
-          !<br />
           Show your card and photos to Natalie before going home!
           <br />
           First person to complete a row, column, or diagonal gets a prize!
@@ -124,7 +118,7 @@ const Bingo2025Page = () => {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 };
 
