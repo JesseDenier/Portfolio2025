@@ -5,7 +5,7 @@ const bingoTasks = [
     "Drink at Long Goodbye",
     "Share a secret (your own)",
     "Tell a true story",
-    "Demo a talent",
+    "Show off a talent",
     "Tell someone you love them",
     "Share a gratitude",
     "Ask a personal question",
@@ -14,7 +14,7 @@ const bingoTasks = [
     "Hold hands with someone",
     "Share a meme",
     "Drink at techo",
-    "Free Space\nTap Me!",
+    "Free Space<br />Tap Me!",
     "Give a kiss (with consent)",
     "Share a fun fact",
     "10 seconds of eye contact",
@@ -49,9 +49,9 @@ const Bingo2025Page = () => {
     <main className="fixed inset-0 bg-pink-200 flex justify-center items-center">
       {/* Header */}
       <header className="absolute top-0 w-full py-2 bg-pink-600 text-white text-lg font-bold items-center text-center">
-        💖 ❤️ 2025 Galentine's with ❤️ 💕
+        Galentine's with the Bois
         <br />
-        💞 🥰 ❤️ the Bois Bingo ❤️ 😍 💗
+        Connection Bingo
       </header>
       {/* Center Grid */}
       <div
@@ -65,16 +65,17 @@ const Bingo2025Page = () => {
               className="bg-white rounded shadow-md border border-gray-300 flex items-center justify-center relative cursor-pointer aspect-square p-1"
               onClick={() => toggleCard(index)}
               style={{
-                fontSize: "clamp(8px, 1.6vw, 14px)",
+                fontSize: "clamp(9px, 1.6vw, 14px)",
                 textAlign: "center",
               }}
             >
-              <span className="max-w-full max-h-full overflow-hidden break-words text-center leading-tight">
-                {task}
-              </span>
+              <span
+                className="max-w-full max-h-full overflow-hidden break-words text-center leading-tight font-bold"
+                dangerouslySetInnerHTML={{ __html: task.toUpperCase() }} // Allows line breaks and converts text to uppercase
+              />
               {selectedCards[index] && (
                 <img
-                  src="/bingo/Heart.png"
+                  src="/bingo/Heart2.png"
                   alt="Heart"
                   className="absolute top-0 left-0 w-full h-full object-contain opacity-75"
                 />
@@ -85,30 +86,21 @@ const Bingo2025Page = () => {
       </div>
       {/* Footer */}
       <footer
-        className="w-full py-2 bg-pink-600 text-white text-[10px] sm:text-xs leading-tight absolute bottom-0 flex justify-between items-center px-2 sm:px-4 max-sm:text-[7px]
+        className="w-full py-2 bg-pink-600 text-white absolute bottom-0 flex justify-between items-center px-2
 "
       >
         <button
-          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0 w-14 h-14 flex justify-center items-center"
+          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0 w-14 h-14 flex justify-center items-center text-sm"
           onClick={() => setIsModalOpen(true)}
         >
-          Share
+          SHARE
         </button>
-        <p className="text-center flex-grow leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
-          Bingo starts at the first bar and ends when you leave the group!
-          <br />
-          Show your card and photos to Natalie before going home!
-          <br />
-          First person to complete a row, column, or diagonal gets a prize!
-          <br />
-          First person to blackout their bingo gets a special prize!
-        </p>
         <a
           href="https://photos.app.goo.gl/xkhbdcL5ypAr2ieJ8"
           target="_blank"
-          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0 w-14 h-14 flex justify-center items-center"
+          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0 w-14 h-14 flex justify-center items-center text-sm"
         >
-          Album
+          ALBUM
         </a>
       </footer>
 
