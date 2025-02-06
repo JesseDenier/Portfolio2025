@@ -46,48 +46,52 @@ const Bingo2025Page = () => {
   };
 
   return (
-    <main className="bg-pink-200 min-h-screen flex flex-col items-center text-center relative">
+    <main className="fixed inset-0 bg-pink-200 flex justify-center items-center">
       {/* Header */}
-      <header className="w-full py-2 bg-pink-600 text-white text-lg font-bold">
+      <header className="absolute top-0 w-full py-2 bg-pink-600 text-white text-lg font-bold items-center text-center">
         💖 ❤️ 2025 Galentine's with ❤️ 💕
         <br />
         💞 🥰 ❤️ the Bois Bingo ❤️ 😍 💗
       </header>
-      {/* Center */}
-      <div className="flex flex-col items-center justify-center flex-grow">
-        <div className="grid grid-cols-5 gap-2 p-4">
-          {bingoTasks.map((row, rowIndex) =>
-            row.map((task, colIndex) => {
-              const index = `${rowIndex}-${colIndex}`;
-              return (
-                <div
-                  key={index}
-                  className="bg-white p-3 rounded shadow-md border border-gray-300 w-24 h-24 flex items-center justify-center text-sm relative cursor-pointer"
-                  onClick={() => toggleCard(index)}
-                >
-                  {task}
-                  {selectedCards[index] && (
-                    <img
-                      src="/bingo/Heart.png"
-                      alt="Heart"
-                      className="absolute top-0 left-0 w-full h-full object-contain opacity-75"
-                    />
-                  )}
-                </div>
-              );
-            })
-          )}
+      {/* Center Grid */}
+      <div
+        className="flex justify-center items-center"
+        style={{ width: "min(95vw, 66vh)", height: "min(95vw, 66vh)" }}
+      >
+        <div className="grid grid-cols-5 grid-rows-5 gap-1 w-full h-full">
+          {bingoTasks.flat().map((task, index) => (
+            <div
+              key={index}
+              className="bg-white rounded shadow-md border border-gray-300 flex items-center justify-center relative cursor-pointer aspect-square p-1"
+              onClick={() => toggleCard(index)}
+              style={{
+                fontSize: "clamp(8px, 1.6vw, 14px)",
+                textAlign: "center",
+              }}
+            >
+              <span className="max-w-full max-h-full overflow-hidden break-words text-center leading-tight">
+                {task}
+              </span>
+              {selectedCards[index] && (
+                <img
+                  src="/bingo/Heart.png"
+                  alt="Heart"
+                  className="absolute top-0 left-0 w-full h-full object-contain opacity-75"
+                />
+              )}
+            </div>
+          ))}
         </div>
       </div>
       {/* Footer */}
-      <footer className="w-full py-2 bg-pink-600 text-white text-sm absolute bottom-0 flex justify-between items-center px-4">
+      <footer className="w-full py-2 bg-pink-600 text-white text-[10px] sm:text-xs leading-tight absolute bottom-0 flex justify-between items-center px-2 sm:px-4">
         <button
-          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md"
+          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0"
           onClick={() => setIsModalOpen(true)}
         >
           Share
         </button>
-        <p className="text-center flex-grow">
+        <p className="text-center flex-grow min-w-0 text-[clamp(8px, 2vw, 10px)] leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
           Bingo starts at the first bar and ends when you leave the group!
           <br />
           Show your card and photos to Natalie before going home!
@@ -99,11 +103,13 @@ const Bingo2025Page = () => {
         <a
           href="https://photos.app.goo.gl/xkhbdcL5ypAr2ieJ8"
           target="_blank"
-          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md"
+          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0"
         >
           Album
         </a>
       </footer>
+
+      {/* Share Modal */}
       {isModalOpen && (
         <div
           className="fixed inset-0 bg-white bg-opacity-75 flex justify-center items-center"
