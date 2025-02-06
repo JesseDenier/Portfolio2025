@@ -48,7 +48,10 @@ const Bingo2025Page = () => {
   return (
     <main className="fixed inset-0 bg-pink-200 flex justify-center items-center">
       {/* Header */}
-      <header className="absolute top-0 w-full py-2 bg-pink-600 text-white text-lg font-bold items-center text-center">
+      <header
+        className="absolute top-0 w-full py-2 bg-pink-600 text-white text-2xl font-bold items-center text-center"
+        style={{ fontFamily: "'Caveat', cursive" }}
+      >
         Galentine's with the Bois
         <br />
         Connection Bingo
@@ -77,7 +80,7 @@ const Bingo2025Page = () => {
                 <img
                   src="/bingo/Heart2.png"
                   alt="Heart"
-                  className="absolute top-0 left-0 w-full h-full object-contain opacity-75"
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] object-contain opacity-75"
                 />
               )}
             </div>
@@ -91,6 +94,7 @@ const Bingo2025Page = () => {
       >
         <button
           className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0 w-14 h-14 flex justify-center items-center text-sm"
+          style={{ fontFamily: "'Caveat', cursive" }}
           onClick={() => setIsModalOpen(true)}
         >
           SHARE
@@ -99,6 +103,7 @@ const Bingo2025Page = () => {
           href="https://photos.app.goo.gl/xkhbdcL5ypAr2ieJ8"
           target="_blank"
           className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0 w-14 h-14 flex justify-center items-center text-sm"
+          style={{ fontFamily: "'Caveat', cursive" }}
         >
           ALBUM
         </a>
