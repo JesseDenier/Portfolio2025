@@ -84,14 +84,17 @@ const Bingo2025Page = () => {
         </div>
       </div>
       {/* Footer */}
-      <footer className="w-full py-2 bg-pink-600 text-white text-[10px] sm:text-xs leading-tight absolute bottom-0 flex justify-between items-center px-2 sm:px-4">
+      <footer
+        className="w-full py-2 bg-pink-600 text-white text-[10px] sm:text-xs leading-tight absolute bottom-0 flex justify-between items-center px-2 sm:px-4 max-sm:text-[7px]
+"
+      >
         <button
-          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0"
+          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0 w-14 h-14 flex justify-center items-center"
           onClick={() => setIsModalOpen(true)}
         >
           Share
         </button>
-        <p className="text-center flex-grow min-w-0 text-[clamp(8px, 2vw, 10px)] leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
+        <p className="text-center flex-grow leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
           Bingo starts at the first bar and ends when you leave the group!
           <br />
           Show your card and photos to Natalie before going home!
@@ -103,7 +106,7 @@ const Bingo2025Page = () => {
         <a
           href="https://photos.app.goo.gl/xkhbdcL5ypAr2ieJ8"
           target="_blank"
-          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0"
+          className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0 w-14 h-14 flex justify-center items-center"
         >
           Album
         </a>
