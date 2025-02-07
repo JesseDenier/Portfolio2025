@@ -94,9 +94,9 @@ const HomePage = () => {
       alt: "Weather Dashboard Website, showing a search bar and a forecast",
     },
     {
-      title: "Valentines Bingo",
+      title: "Galentine's Bingo",
       description: "Real-World Scavenger Hunt Game",
-      href: "https://jessedenier.github.io/Bingo/",
+      href: "/bingo2025",
       src: "code_samples/bingo.png",
       alt: "Pink Bingo Website, showing a 5x5 grid of white space",
     },
