@@ -99,8 +99,13 @@ const Bingo2025Page = () => {
         >
           SHARE
         </button>
+        <p className="mx-4 text-center text-sm">
+          Use the share button to bring up a QR code to play with anyone you
+          meet, and make sure to add any pictures from the night to our group
+          album!
+        </p>
         <a
-          href="https://photos.app.goo.gl/xkhbdcL5ypAr2ieJ8"
+          href="https://photos.app.goo.gl/MPeZKALh7R7RJLmg8"
           target="_blank"
           className="bg-white text-pink-600 font-bold py-1 px-3 rounded shadow-md flex-shrink-0 w-14 h-14 flex justify-center items-center text-sm"
           style={{ fontFamily: "'Caveat', cursive" }}
