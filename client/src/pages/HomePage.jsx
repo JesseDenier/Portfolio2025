@@ -168,9 +168,14 @@ const HomePage = () => {
       src: "flyers/2024eclipse.svg",
     },
     {
-      title: "Valentine's Bar Crawl",
+      title: "Valentine's Bar Crawl 2023",
       alt: "Retro flyer with a stylized sunset and hearts",
       src: "flyers/2023valentines.png",
+    },
+    {
+      title: "Valentine's Bar Crawl 2024",
+      alt: "Sweethearts box with customized candy hearts and imagery",
+      src: "flyers/2024valentines.png",
     },
     {
       title: "Save Peter Pan Putt Putt",
@@ -179,24 +184,24 @@ const HomePage = () => {
     },
     {
       title: "Friend's Birthday",
-      alt: "Hercules movie poster with faces replaced",
-      src: "flyers/2022ramzi.png",
+      alt: "Pool party with music, and a red green color scheme",
+      src: "flyers/2023ramzi.svg",
     },
     {
       title: "My Birthday",
       alt: "Wavy retro flyer highlighting a watch",
-      src: "flyers/2023jesse1.svg",
+      src: "flyers/2023jesse1.png",
     },
     {
       title: "Birthday Schedule",
       alt: "Green, orange, and brown flags showing activities for each hour.",
-      src: "flyers/2023jesse2.svg",
+      src: "flyers/2023jesse2.png",
     },
   ];
   const art = [
     {
-      alt: "A cute red panda holding a bag of popeyes and a biscuit",
-      src: "art/panda.png",
+      alt: "An iconic Austin business logo with a new dinosaur looming over it",
+      src: "art/peter_pan.svg",
     },
     {
       alt: "Collection of historic Austin signs in a collage over an Austin road map",
@@ -207,8 +212,8 @@ const HomePage = () => {
       src: "art/greek.svg",
     },
     {
-      alt: "Celtics player Rob Williams III blocking Steph Curry's shot in outerspace",
-      src: "art/time_lord.svg",
+      alt: "Disney's Hercules movie poster with the faces changed to new people",
+      src: "art/hercules.png",
     },
   ];
 
